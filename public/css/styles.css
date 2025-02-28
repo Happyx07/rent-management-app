@@ -1,0 +1,97 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+}
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+nav {
+  margin: 10px 0;
+}
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #fff;
+}
+nav a:hover {
+  color: #ddd;
+}
+main {
+  padding: 20px;
+  min-height: calc(100vh - 150px);
+}
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+h1 {
+  color: #333;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #f2f2f2;
+}
+label {
+  display: block;
+  margin: 10px 0;
+}
+input, select {
+  padding: 5px;
+  width: 200px;
+}
+button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #0056b3;
+}
+.stats {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+.stat-box {
+  border: 1px solid #ddd;
+  padding: 15px;
+  width: 150px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.stat-box h2 {
+  font-size: 18px;
+  margin: 0;
+  color: #555;
+}
+.stat-box p {
+  font-size: 24px;
+  margin: 10px 0 0;
+  color: #333;
+}

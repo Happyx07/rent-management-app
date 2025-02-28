@@ -1,0 +1,24 @@
+<h1>Payments</h1>
+<a href="/payments/add">Add New Payment</a>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tenant</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Method</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each payments}}
+      <tr>
+        <td>{{id}}</td>
+        <td>{{first_name}} {{last_name}}</td>
+        <td>{{amount}}</td>
+        <td>{{payment_date}}</td>
+        <td>{{payment_method}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

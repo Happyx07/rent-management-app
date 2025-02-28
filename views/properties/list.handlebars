@@ -1,0 +1,22 @@
+<h1>Properties</h1>
+<a href="/properties/add">Add New Property</a>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each properties}}
+      <tr>
+        <td>{{id}}</td>
+        <td>{{property_name}}</td>
+        <td>{{address}}</td>
+        <td><a href="/properties/edit/{{id}}">Edit</a></td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
