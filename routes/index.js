@@ -16,7 +16,36 @@ router.get('/', (req, res) => {
       db.get('SELECT SUM(amount) as totalPayments FROM Payments', (err, row) => {
         if (err) return res.send('Error fetching payment total');
         stats.totalPayments = row.totalPayments || 0;
-        res.render('home', { stats });
+        
+        // Get recent payments with tenant names
+        const query = `
+          SELECT p.*, t.first_name || ' ' || t.last_name as tenant_name 
+          FROM Payments p
+          JOIN Tenants t ON p.tenant_id = t.id
+          ORDER BY p.payment_date DESC
+          LIMIT 5
+        `;
+        
+        db.all(query, [], (err, recentPayments) => {
+          if (err) {
+            console.error('Error fetching recent payments:', err);
+            recentPayments = [];
+          }
+          
+          // Format payment data
+          recentPayments = recentPayments || [];
+          recentPayments = recentPayments.map(payment => {
+            // Add a status field (just for UI demonstration)
+            payment.status = 'paid';
+            return payment;
+          });
+          
+          res.render('home', { 
+            stats, 
+            recentPayments,
+            isHome: true 
+          });
+        });
       });
     });
   });

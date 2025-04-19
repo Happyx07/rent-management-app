@@ -2,24 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Rent Management App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RentEase - Simplify Your Property Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
   <header>
-    <h1>Rent Management</h1>
-    <nav>
-      <a href="/">Dashboard</a> |
-      <a href="/tenants">Tenants</a> |
-      <a href="/properties">Properties</a> |
-      <a href="/payments">Payments</a>
-    </nav>
+    <div class="header-content">
+      <div class="logo-container">
+        <img src="/images/rentease-logo.svg" alt="RentEase Logo" class="logo">
+      </div>
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav id="mainNav">
+        <a href="/" class="{{#if isHome}}active{{/if}}">
+          <i class="fas fa-tachometer-alt"></i> Dashboard
+        </a>
+        <a href="/properties" class="{{#if isProperties}}active{{/if}}">
+          <i class="fas fa-building"></i> Properties
+        </a>
+        <a href="/tenants" class="{{#if isTenants}}active{{/if}}">
+          <i class="fas fa-users"></i> Tenants
+        </a>
+        <a href="/payments" class="{{#if isPayments}}active{{/if}}">
+          <i class="fas fa-money-bill-wave"></i> Payments
+        </a>
+      </nav>
+    </div>
   </header>
+
   <main>
-    {{{body}}}
+    <div class="container">
+      {{{body}}}
+    </div>
   </main>
+
   <footer>
-    <p>&copy; 2025 Rent Management App</p>
+    <p>&copy; 2025 RentEase - Simplify Your Property Management</p>
   </footer>
+
+  <script>
+    // Simple mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const mainNav = document.getElementById('mainNav');
+      
+      if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', function() {
+          if (mainNav.style.display === 'flex') {
+            mainNav.style.display = '';
+          } else {
+            mainNav.style.display = 'flex';
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
